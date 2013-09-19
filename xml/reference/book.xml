@@ -1,0 +1,36 @@
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<book>
+  <about-this-app nil=\"true\"/>
+  <book-browse type=\"boolean\">false</book-browse>
+  <book-key>443923017</book-key>
+  <buy-link></buy-link>
+  <created-at type=\"datetime\">2013-09-10T09:04:23Z</created-at>
+  <edition nil=\"true\"/>
+  <end-lesson type=\"integer\" nil=\"true\"/>
+  <free type=\"boolean\">false</free>
+  <id type=\"integer\">136285</id>
+  <imprint>Shanghai  Press, Better Link Press</imprint>
+  <includes nil=\"true\"/>
+  <isbn10>1602202427</isbn10>
+  <isbn13>9781602202429</isbn13>
+  <item-format>Trade Paperback</item-format>
+  <language>English</language>
+  <libre-id-link type=\"integer\" nil=\"true\"/>
+  <medium>Book</medium>
+  <number-of-files type=\"integer\" nil=\"true\"/>
+  <number-of-items type=\"integer\">0</number-of-items>
+  <number-of-lessons type=\"integer\" nil=\"true\"/>
+  <pages type=\"integer\">280</pages>
+  <publisher>Shanghai  Press, Better Link Press</publisher>
+  <season nil=\"true\"/>
+  <seo-author>Pan-Xiangli</seo-author>
+  <seo-series nil=\"true\"/>
+  <seo-title>White-Michelia</seo-title>
+  <start-lesson type=\"integer\" nil=\"true\"/>
+  <sub-format nil=\"true\"/>
+  <subtitle nil=\"true\"/>
+  <title>White Michelia</title>
+  <trim-size>4.250 x 6.750</trim-size>
+  <updated-at type=\"datetime\">2013-09-10T09:04:23Z</updated-at>
+  <work-id type=\"integer\">105259</work-id>
+</book>
