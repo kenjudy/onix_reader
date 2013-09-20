@@ -13,7 +13,8 @@ describe Book do
   
     its(:isbn13) { should == '9781476716534' }
     its(:isbn10) { should == '1476716536' }
-    its(:title) { should == 'A Great Game' }
+    its(:prefix) { should == 'A' }
+    its(:title) { should == 'Great Game' }
     its(:subtitle) { should == 'The Forgotten Leafs & the Rise of Professional Hockey' }
     its(:workkey) { should == '408743661' }
     its(:language) { should == 'English' }
@@ -26,7 +27,10 @@ describe Book do
     its(:edition) { should be_nil }
     its(:number_of_items) { should == 3 }
     its(:description) { should include("Drawing on extensive archival") }
-  
+    its(:audience_code) { should include("General/trade") }
+    
+    it "should have reading group guide" 
+      
     it "should have errors for nil values" do
       expect(subject.errors.keys).to eq [:sub_format, :edition]
     end

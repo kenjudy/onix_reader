@@ -11,9 +11,14 @@ class Book
   # how are locale specific descriptions modeled in an ONIX product?
   # do we feed main description (d101) or use othertext d104 with d102 = 01
   # do we feed short description in othertext (d102 = 02)
-  # pimsleur specific nodes: start-lesson, end-lesson, number of lessons, course language
+  # pimsleur specific nodes: start-lesson, end-lesson, number of lessons, course language id
+  # lose publisher because ONIX repeats imprint as publisher
+  # grade/age/lexile? 
+  # book with a reading group guide (othertext d102 = 41)
+  # book with series? series b017 (publisher code), b018 (series title)
+  # book with volume? set b026 (number within set)
   
-  attr_accessor :isbn13, :isbn10, :title, :subtitle, :workkey, :language, :imprint, :publisher, :trim_size, :errors, :format, :sub_format, :pages, :edition, :number_of_items, :description
+  attr_accessor :isbn13, :isbn10, :prefix, :title, :subtitle, :workkey, :language, :imprint, :publisher, :trim_size, :errors, :format, :sub_format, :pages, :edition, :number_of_items, :description, :audience_code, :reading_group_guide
   
   def initialize(product_node)
     self.errors = {}
@@ -23,7 +28,8 @@ class Book
     assign_value(:language) { OnixCodes.language_code_iso[product_node.language.b252.text] }
     assign_value(:publisher) { product_node.publisher.b081.text }
     assign_value(:subtitle) { product_node.title.b029.text }
-    assign_value(:title) { product_node.title.b203.text }
+    assign_value(:prefix) { product_node.title.b030.text }
+    assign_value(:title) { product_node.title.b031.text }
     assign_value(:workkey) { product_node.workidentifier.b244.text }
     assign_value(:trim_size) { "#{product_node.measure.xpath('c093[text()="02"]/following-sibling::c095[text() = "in"]/preceding-sibling::c094').text} x #{product_node.measure.xpath('c093[text()="01"]/following-sibling::c095[text() = "in"]/preceding-sibling::c094').text}" }
     assign_value(:format) { OnixCodes.format_code[product_node.b012.text] }
@@ -32,6 +38,8 @@ class Book
     assign_value(:edition) { OnixCodes.edition_type_code[product_node.b056.text] }
     assign_value(:number_of_items) { product_node.b210.text.to_i }
     assign_value(:description) { product_node.othertext.xpath('d102[text()="01"]/following-sibling::d104').text }
+    assign_value(:audience_code) { OnixCodes.audience_code[product_node.audience.xpath('b204[text()="01"]/following-sibling::b206').text]}
+    assign_value(:reading_group_guide) { product_node.othertext.xpath('d102[text()="41"]/following-sibling::d104').text }
   end
   
   private
@@ -44,8 +52,8 @@ class Book
 
 end
 
- 
- # age-high
+#BLOCKED - NEED CHILDREN'S TITLE 
+# age-high
 #  age-high-up-ind
 #  age-low
 #  age-low-up-ind
@@ -55,18 +63,10 @@ end
 #  grade-low
 #  grade-low-up-ind
 # 
-# 
-# 
 #  lexile
 # 
 # 
-#  reading-group-guide
-# 
 #  series-id
 # 
-#  prefix
 #  volume
-# 
-#  course-language-id
-# 
-#  
+
