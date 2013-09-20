@@ -251,7 +251,7 @@ module OnixCodes
   def self.edition_type_code
     {
       "ABR" => "Abridged",
-      "ACT" => "Acting edtion",
+      "ACT" => "Acting edition",
       "ADP" => "Adapted",
       "ALT" => "Alternate",
       "ANN" => "Annotated",
