@@ -3,33 +3,31 @@ require_relative "../../lib/onix_reader.rb"
 require_relative "../../models/book.rb"
 
 describe FileReader::OnixReader do
-  let(:source_dir) { "../xml/onix" }
-  let(:file) { double(File, read: "<xml><foo>blah</foo>") }
-  let(:book) { double(Book).as_null_object}
-  
+  let(:source_dir) { "spec/test_data" }
+    
   before(:each) do
-    Dir.stub(glob: %w[foo_onix.xml])
-    File.stub(new: file)
+    allow_any_instance_of(Book).to receive(:new).and_return(double(Book).as_null_object)
   end
 
-  context "as a file reader" do
+  context "on new" do
     subject { FileReader::OnixReader.new(source_dir) }
   
-  
-    it { should_not be_nil }
-  
     its(:source_directory) { should == source_dir}
-  
-    its(:files) { should == [file]}
-  
-  end
-  
-  context "as parsed book" do
+
+    specify { expect(subject.files.count).to eq 2 }
     
-    it "should create book with onix xml" do
-      Book.should_receive(:new).with(file.read)
-      FileReader::OnixReader.new().parse(file)
-    end
   end
+  
+  context "on parse" do
+    subject { FileReader::OnixReader.new(source_dir) }
+    
+    it "should create books" do
+      subject.stub(files: ["spec/test_data/ebook_onix.xml", "spec/test_data/physical_book_onix.xml"])
+      Book.should_receive(:new).exactly(3).times
+      subject.parse
+    end
+    
+  end
+  
   
 end
