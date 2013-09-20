@@ -4,10 +4,10 @@ require_relative "../../models/book.rb"
 
 describe FileReader::OnixReader do
   let(:source_dir) { "../xml/onix" }
-  let(:file) { double(File) }
+  let(:file) { double(File, read: "<xml><foo>blah</foo>") }
+  let(:book) { double(Book).as_null_object}
   
   before(:each) do
-    Nokogiri::XML::Document.stub(parse: Nokogiri::XML("<xml></xml>"))
     Dir.stub(glob: %w[foo_onix.xml])
     File.stub(new: file)
   end
@@ -20,20 +20,15 @@ describe FileReader::OnixReader do
   
     its(:source_directory) { should == source_dir}
   
-    it "should list files entries" do
-      expect(subject.files).to eq [file]
-    end
+    its(:files) { should == [file]}
   
   end
   
   context "as parsed book" do
-    subject {FileReader::OnixReader.new().parse(file)}
-  
-    its(:class) {should == Book}
-
+    
     it "should create book with onix xml" do
-      Book.should_receive(:new).with(Nokogiri::XML("<xml></xml>"))
-      subject
+      Book.should_receive(:new).with(file.read)
+      FileReader::OnixReader.new().parse(file)
     end
   end
   

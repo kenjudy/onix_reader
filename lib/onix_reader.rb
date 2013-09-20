@@ -17,8 +17,8 @@ module FileReader
     end
     
     def parse(file)
-      xml = Nokogiri::XML(file)
-      Book.new(xml)
+      raw_xml = file.read
+      Book.new(raw_xml)
     end
   end
 end

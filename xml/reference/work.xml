@@ -5,28 +5,28 @@
   <age-low type=\"integer\">0</age-low>
   <age-low-up-ind>N</age-low-up-ind>
   <course-language-id type=\"integer\" nil=\"true\"/>
-  <created-at type=\"datetime\">2013-09-10T09:04:20Z</created-at>
+  <created-at type=\"datetime\">2013-08-28T06:17:17Z</created-at>
   <egalley-isbn13 nil=\"true\"/>
   <grade-high>0</grade-high>
   <grade-high-up-ind>N</grade-high-up-ind>
   <grade-low>0</grade-low>
   <grade-low-up-ind>N</grade-low-up-ind>
-  <id type=\"integer\">105259</id>
-  <key type=\"integer\">443923017</key>
-  <last-synched-date type=\"datetime\">2013-09-10T00:00:00Z</last-synched-date>
+  <id type=\"integer\">105175</id>
+  <key type=\"integer\">408743661</key>
+  <last-synched-date type=\"datetime\">2013-09-06T00:00:00Z</last-synched-date>
   <lexile nil=\"true\"/>
-  <needs-default-cover type=\"boolean\">true</needs-default-cover>
+  <needs-default-cover type=\"boolean\">false</needs-default-cover>
   <pimslet type=\"boolean\">false</pimslet>
-  <prefix nil=\"true\"/>
+  <prefix>A</prefix>
   <reading-group-guide nil=\"true\"/>
   <responsys-notified-at type=\"datetime\" nil=\"true\"/>
   <review-content-path nil=\"true\"/>
   <review-count type=\"integer\" nil=\"true\"/>
   <review-rating type=\"float\" nil=\"true\"/>
-  <series-id type=\"integer\">3893</series-id>
-  <subtitle nil=\"true\"/>
-  <title>White Michelia</title>
-  <title-for-url>White-Michelia</title-for-url>
-  <updated-at type=\"datetime\">2013-09-10T09:04:24Z</updated-at>
+  <series-id type=\"integer\" nil=\"true\"/>
+  <subtitle>The Forgotten Leafs &amp; the Rise of Professional Hockey</subtitle>
+  <title>Great Game</title>
+  <title-for-url>Great-Game</title-for-url>
+  <updated-at type=\"datetime\">2013-09-08T08:20:23Z</updated-at>
   <volume type=\"integer\">0</volume>
 </work>
