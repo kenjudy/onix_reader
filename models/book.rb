@@ -11,8 +11,8 @@ class Book
   # how are locale specific descriptions modeled in an ONIX product?
   # do we feed main description (d101) or use othertext d104 with d102 = 01
   # do we feed short description in othertext (d102 = 02)
+  # we will lose publisher because ONIX repeats imprint as publisher
   # pimsleur specific nodes: start-lesson, end-lesson, number of lessons, course language id
-  # lose publisher because ONIX repeats imprint as publisher
   # grade/age/lexile? 
   # book with a reading group guide (othertext d102 = 41)
   # book with series? series b017 (publisher code), b018 (series title)
